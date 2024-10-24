@@ -17,29 +17,30 @@ url = "https://s3.amazonaws.com/EULA/NVidiaEULAforAWS.pdf"
 sha512 = "e1926fe99afc3ab5b2f2744fcd53b4046465aefb2793e2e06c4a19455a3fde895e00af1415ff1a5804c32e6a2ed0657e475de63da6c23a0e9c59feeef52f3f58"
 
 [[package.metadata.build-package.external-files]]
-url = "https://us.download.nvidia.com/tesla/535.216.01/NVIDIA-Linux-x86_64-535.216.01.run"
-sha512 = "3b4ae3584368fcc5f81a680dd8588d8b9e48f43dafe2490f5414ed258fa8c9799ebd40d2fd115e20bd02648eeb3e5c6dff39562d89353580fa679d011cebf6f8"
+url = "https://us.download.nvidia.com/tesla/560.35.03/NVIDIA-Linux-x86_64-560.35.03.run"
+sha512 = "97137160b64928ff84fd6145a0ebc209c045d6a07ccc53ec6df6ba1fda2ad72038eda7ecdc0a0178a2628aa4e18819a9b3ff3b693b22bdc9de543be0a968f8aa"
 force-upstream = true
 
 [[package.metadata.build-package.external-files]]
-url = "https://us.download.nvidia.com/tesla/535.216.01/NVIDIA-Linux-aarch64-535.216.01.run"
-sha512 = "f68794249bf18ba626c6a665880721c8cc0dada6c7c1d8b15bf17174a4cac35ca2ab534fff2410c8bc0326c48f6ab913b6d9a92630505eeb768e02610a7772d9"
+url = "https://us.download.nvidia.com/tesla/560.35.03/NVIDIA-Linux-aarch64-560.35.03.run"
+sha512 = "8df331104f3d63d4aaeeace412a986a93355be3ce69a968fbc12b7d0b21a34e71cdf37758c23a392c358a1c3ba1da21115002f55017c2a829c7bb4d41536e543"
 force-upstream = true
 
 [[package.metadata.build-package.external-files]]
-url = "https://developer.download.nvidia.com/compute/cuda/repos/rhel9/x86_64/nvidia-fabric-manager-535.216.01-1.x86_64.rpm"
-sha512 = "9208004779a57418cef4e0eacfad549e01fc3e193cda24a4f809325fee3a74910350c7752372d5dba7b74e9d5bf9da5807bc8de2bedade6dbe23b270c3047dfe"
+url = "https://developer.download.nvidia.com/compute/cuda/repos/rhel9/x86_64/nvidia-fabric-manager-560.35.03-1.x86_64.rpm"
+sha512 = "b62c26cabdac32ab39b77547d28fce4a7cb92875236efc158c2b38a322a09e30f48c3906ec10c30468075b3da759ae8d09abee355fa98e1b78482dbbdaaa1f84"
 force-upstream = true
 
 [[package.metadata.build-package.external-files]]
-url = "https://developer.download.nvidia.com/compute/cuda/repos/rhel9/sbsa/nvidia-fabric-manager-535.216.01-1.aarch64.rpm"
-sha512 = "1f553e4627953cceef8f630d2be907829f8b78b789ffee7691ace541f759bdb07016e364c20e1d5779ce463f0b48448cea292f58a9899523ec840bb5a0c37b0e"
+url = "https://developer.download.nvidia.com/compute/cuda/repos/rhel9/sbsa/nvidia-fabric-manager-560.35.03-1.aarch64.rpm"
+sha512 = "9ac6fe0d1a73ff006908ef306eaf3187b4f9a627ab72e8fb19c9855ae18a1213126b2e53e6230e7373b24584797430ca41f1a03c71ee044f6a8470491d5d32ba"
 force-upstream = true
 
 [[package.metadata.build-package.external-files]]
-url = "https://raw.githubusercontent.com/NVIDIA/open-gpu-kernel-modules/535/COPYING"
+url = "https://raw.githubusercontent.com/NVIDIA/open-gpu-kernel-modules/560/COPYING"
 sha512 = "f9cee68cbb12095af4b4e92d01c210461789ef41c70b64efefd6719d0b88468b7a67a3629c432d4d9304c730b5d1a942228a5bcc74a03ab1c411c77c758cd938"
 force-upstream = true
 
 [build-dependencies]
 kernel-6_1 = { path = "../kernel-6.1" }
+

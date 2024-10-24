@@ -1,6 +1,6 @@
-%global tesla_major 535
-%global tesla_minor 216
-%global tesla_patch 01
+%global tesla_major 560
+%global tesla_minor 35
+%global tesla_patch 03
 %global tesla_ver %{tesla_major}.%{tesla_minor}.%{tesla_patch}
 %if "%{?_cross_arch}" == "aarch64"
 %global fm_arch sbsa
@@ -288,6 +288,7 @@ install -m 4755 nvidia-modprobe %{buildroot}%{_cross_bindir}
 %if "%{_cross_arch}" == "x86_64"
 install -m 755 nvidia-ngx-updater %{buildroot}%{_cross_libexecdir}/nvidia/tesla/bin
 %endif
+install -m 755 nvoptix.bin %{buildroot}%{_cross_datadir}/nvidia/nvoptix.bin
 
 # Users
 install -m 0644 %{S:205} %{buildroot}%{_cross_sysusersdir}/nvidia.conf
@@ -367,6 +368,7 @@ popd
 %{_cross_libexecdir}/nvidia/tesla/bin/nvswitch-audit
 %{_cross_libexecdir}/nvidia/tesla/bin/nvidia-persistenced
 %{_cross_bindir}/nvidia-modprobe
+%{_cross_datadir}/nvidia/nvoptix.bin
 
 # nvswitch topologies
 %dir %{_cross_datadir}/nvidia/tesla/nvswitch
@@ -374,6 +376,10 @@ popd
 %{_cross_datadir}/nvidia/tesla/nvswitch/dgx2_hgx2_topology
 %{_cross_datadir}/nvidia/tesla/nvswitch/dgxh100_hgxh100_topology
 %{_cross_datadir}/nvidia/tesla/nvswitch/dgxh800_hgxh800_topology
+%{_cross_datadir}/nvidia/tesla/nvswitch/dgxgh200_hgxgh200_16gpus_topology
+%{_cross_datadir}/nvidia/tesla/nvswitch/dgxgh200_hgxgh200_32gpus_topology
+%{_cross_datadir}/nvidia/tesla/nvswitch/dgxgh200_hgxgh200_8gpus_topology
+%{_cross_datadir}/nvidia/tesla/nvswitch/oberon_gh_32gpus_topology
 
 # Configuration files
 %{_cross_factorydir}%{_cross_sysconfdir}/drivers/nvidia-tesla.toml
@@ -448,6 +454,10 @@ popd
 
 # Graphics libs
 %{_cross_libdir}/nvidia/tesla/libnvidia-eglcore.so.%{tesla_ver}
+%{_cross_libdir}/nvidia/tesla/libnvidia-egl-gbm.so.1.1.1
+%{_cross_libdir}/nvidia/tesla/libnvidia-egl-wayland.so.1.1.13
+%{_cross_libdir}/nvidia/tesla/libnvidia-egl-xcb.so.1
+%{_cross_libdir}/nvidia/tesla/libnvidia-egl-xlib.so.1
 %{_cross_libdir}/nvidia/tesla/libnvidia-glcore.so.%{tesla_ver}
 %{_cross_libdir}/nvidia/tesla/libnvidia-tls.so.%{tesla_ver}
 %{_cross_libdir}/nvidia/tesla/libnvidia-glsi.so.%{tesla_ver}
@@ -456,7 +466,9 @@ popd
 %{_cross_libdir}/nvidia/tesla/libnvidia-fbc.so.1
 %{_cross_libdir}/nvidia/tesla/libnvoptix.so.%{tesla_ver}
 %{_cross_libdir}/nvidia/tesla/libnvoptix.so.1
-%{_cross_libdir}/nvidia/tesla/libnvidia-vulkan-producer.so.%{tesla_ver}
+%{_cross_libdir}/nvidia/tesla/libnvidia-gpucomp.so.%{tesla_ver}
+%{_cross_libdir}/nvidia/tesla/libnvidia-vksc-core.so.1
+%{_cross_libdir}/nvidia/tesla/libnvidia-vksc-core.so.560.35.03
 
 # Graphics GLVND libs
 %{_cross_libdir}/nvidia/tesla/libnvidia-glvkspirv.so.%{tesla_ver}
@@ -511,8 +523,6 @@ popd
 %exclude %{_cross_libdir}/nvidia/tesla/nvidia_drv.so
 %exclude %{_cross_libdir}/nvidia/tesla/libnvidia-egl-wayland.so.1
 %exclude %{_cross_libdir}/nvidia/tesla/libnvidia-egl-gbm.so.1
-%exclude %{_cross_libdir}/nvidia/tesla/libnvidia-egl-gbm.so.1.1.0
-%exclude %{_cross_libdir}/nvidia/tesla/libnvidia-egl-wayland.so.1.1.11
 %exclude %{_cross_libdir}/nvidia/tesla/libnvidia-wayland-client.so.%{tesla_ver}
 
 %files open-gpu-%{tesla_major}
@@ -538,3 +548,4 @@ popd
 %files fabricmanager
 %{_cross_factorydir}%{_cross_sysconfdir}/nvidia/fabricmanager.cfg
 %{_cross_unitdir}/nvidia-fabricmanager.service
+
