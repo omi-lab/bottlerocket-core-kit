@@ -5,3 +5,4 @@ d __PREFIX__/lib/modules/__KERNEL_VERSION__/kernel/drivers/extra/video/nvidia/op
 C /etc/nvidia/fabricmanager.cfg - - - -
 d /run/nvidia 0700 root root -
 D /var/run/nvidia-persistenced 0755 nvidia nvidia - -
+D /usr/share/nvoptix.bin 0755 nvidia nvidia - -

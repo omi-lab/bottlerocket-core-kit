@@ -288,7 +288,7 @@ install -m 4755 nvidia-modprobe %{buildroot}%{_cross_bindir}
 %if "%{_cross_arch}" == "x86_64"
 install -m 755 nvidia-ngx-updater %{buildroot}%{_cross_libexecdir}/nvidia/tesla/bin
 %endif
-install -m 755 nvoptix.bin %{buildroot}%{_cross_datadir}/nvidia/nvoptix.bin
+install -m 755 nvoptix.bin %{buildroot}%{_cross_libexecdir}/nvidia/tesla/bin/nvoptix.bin
 
 # Users
 install -m 0644 %{S:205} %{buildroot}%{_cross_sysusersdir}/nvidia.conf
@@ -368,7 +368,7 @@ popd
 %{_cross_libexecdir}/nvidia/tesla/bin/nvswitch-audit
 %{_cross_libexecdir}/nvidia/tesla/bin/nvidia-persistenced
 %{_cross_bindir}/nvidia-modprobe
-%{_cross_datadir}/nvidia/nvoptix.bin
+%{_cross_libexecdir}/nvidia/tesla/bin/nvoptix.bin
 
 # nvswitch topologies
 %dir %{_cross_datadir}/nvidia/tesla/nvswitch
